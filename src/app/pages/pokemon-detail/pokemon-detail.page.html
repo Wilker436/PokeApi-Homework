@@ -1,0 +1,28 @@
+<ion-header mode="md">
+  <ion-toolbar>
+    <ion-title>
+      <div class="title-content">
+        <h1 class="title">Pokemon</h1> <strong>API</strong>
+      </div>
+    </ion-title>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-text-center ion-justify-content-center ion-align-items-center">
+  <div class="glass-content"  >
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col *ngIf="pokemon" size-lg="6" size-md="8" size-sm="12" size="12">
+        
+        <app-card-pokemon [nombre]="pokemon.name" [img]="img" [types]="pokemon.types" [weight]="pokemon.weight" [height]="pokemon.height" [ability]="pokemon.abilities" [description]="pokemon.description" [param]="1"/>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  </div>
+</ion-content>

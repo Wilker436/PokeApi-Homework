@@ -1,0 +1,50 @@
+<ion-header mode="md">
+  <ion-toolbar>
+    <ion-title>
+      <div class="title-content"><h1 class="title">Pokemon</h1> <strong>API</strong></div>
+    </ion-title>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/intro"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content node="ios">
+  <div class="glass-content">
+      <ion-grid>
+
+        <ion-row>
+          <ion-col class="searchbar-container" size="12">
+            <ion-searchbar 
+              placeholder="Buscar..." 
+              [(ngModel)]="params.name" 
+              (ionInput)="searchPokemon()" 
+              [debounce]="250">
+            </ion-searchbar>
+          </ion-col>
+          
+        </ion-row>
+
+
+        <ion-row>
+
+          <ion-col *ngFor="let p of pokemons" size-lg="4" size-md="6" size-sm="12" size="12">
+           
+            <app-card-pokemon [nombre]="p.name" [img]="p.sprites?.front_default" [types]="p.types" [idp]="p.id"></app-card-pokemon>
+
+
+          </ion-col>
+
+          <ion-infinite-scroll (ionInfinite)="getPokemons($event)">
+            <ion-infinite-scroll-content
+              loadingSpinner="bubbles"
+              loadingText="Cargando más Pokémon...">
+            </ion-infinite-scroll-content>
+          </ion-infinite-scroll>
+
+        </ion-row>
+      </ion-grid>
+  </div> 
+</ion-content>
+

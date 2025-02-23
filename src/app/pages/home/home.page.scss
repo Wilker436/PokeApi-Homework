@@ -1,0 +1,30 @@
+
+
+
+
+.searchbar-container {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente si es necesario */
+    width: 100%;
+  
+  }
+  
+ion-searchbar{
+    --background: rgba(40, 9, 69, 0.3);
+    --color: white;
+    --placeholder-color: rgb(255, 255, 255);
+    --border-radius: 20px;
+    --border-width: 0;
+    --border-color: transparent;
+    --drop-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    --backdrop-filter: blur(5px);
+    --webkit-backdrop-filter: blur(5px);
+    --padding-start: 20px;
+    --padding-end: 20px;
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+    --placeholder-font-style: italic;
+    max-width: 500px; /* Define un ancho máximo */
+    width: 100%; /* Se adapta al contenedor */
+}

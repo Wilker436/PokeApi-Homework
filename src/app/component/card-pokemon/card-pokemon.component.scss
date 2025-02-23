@@ -1,0 +1,72 @@
+ion-card {
+    position: relative;
+    margin: 20px;
+    background: linear-gradient(to bottom, #f7c70f, #d1b235); 
+    border-radius: 16px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3), 0 8px 12px rgba(0, 0, 0, 0.3);
+    border: 3px solid #b6a14f; /* Borde oscuro */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    overflow: hidden;
+    height: auto;
+}
+
+.pokedex-screen {
+    background: #1e1e1e;
+    border: 3px solid #444;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    color: #f8f8f8; /* Color digital */
+    font-family: 'Courier New', monospace;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-height: 520px;
+}
+
+/* 🔵 Botón Pokédex */
+.pokedex-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, #00bcd4, #007c91);
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 188, 212, 0.8);
+}
+
+/* ⚫ Indicador inferior */
+.pokedex-indicator {
+    width: 10px;
+    height: 10px;
+    background: #d32f2f;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    box-shadow: 0 0 5px #d32f2fa8;
+}
+
+
+ion-avatar {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fce89794;
+  
+    & .imgAvatar {
+      border: 5px solid #f7c70f;
+      border-radius: 50%;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }

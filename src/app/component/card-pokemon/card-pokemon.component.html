@@ -1,25 +1,27 @@
 <ion-card>
   <div class="pokedex-button"></div> <!-- 🔵 Botón Pokédex -->
   
-  <div class="pokedex-screen" *ngIf="param === 0">
 
+  @if( param === 0){
+    <div class="pokedex-screen" >
+ 
     
-    <h2>{{ nombre }}</h2>
-
-    <ion-avatar>
-      <img [src]="img" alt="{{nombre}}" class="imgAvatar"/>
-    </ion-avatar>
-
-    <p *ngIf="types?.length" class="Tipo">
-      <span *ngFor="let type of types">{{ type.type.name | titlecase }}</span>
-    </p>
-    
-
-    <app-input text="Detalles" [routerLink]="'/pokemon-detail/' + idp"></app-input>
-
-  </div>
-
-  <div class="pokedex-screen" *ngIf="param === 1">
+      <h2>{{ nombre }}</h2>
+  
+      <ion-avatar>
+        <img [src]="img" alt="{{nombre}}" class="imgAvatar"/>
+      </ion-avatar>
+  
+      <p *ngIf="types?.length" class="Tipo">
+        <span *ngFor="let type of types">{{ type.type.name | titlecase }}</span>
+      </p>
+      
+  
+      <app-input text="Detalles" [routerLink]="'/pokemon-detail/' + idp"></app-input>
+  
+    </div>
+  }@else {
+    <div class="pokedex-screen">
 
       <h2>{{ nombre }}</h2>
 
@@ -43,6 +45,12 @@
       <p class="Tipo">{{ description }}</p>
       
   </div>
+
+
+  }
+
+
+
   
   <div class="pokedex-indicator"></div> 
 </ion-card>

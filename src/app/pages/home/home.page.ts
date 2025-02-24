@@ -16,12 +16,11 @@ import { CardPokemonComponent } from 'src/app/component/card-pokemon/card-pokemo
 })
 export class HomePage implements OnInit {
 
-  pokemons: any[] = []; // Lista filtrada de Pokémon
-  allPokemons: any[] = []; // Lista completa de Pokémon
-  params = { name: '' }; // Parámetro de búsqueda
-  offset = 0; // Control de paginación
-  limit = 10; // Número de Pokémon por página
-
+  pokemons: any[] = []; 
+  allPokemons: any[] = [];
+  params = { name: '' }; 
+  offset = 0; 
+  limit = 10; 
   constructor(
     private pokemonApiService: PokemonApiService
   ) { }
@@ -41,21 +40,21 @@ export class HomePage implements OnInit {
 
           forkJoin(requests).subscribe({
             next: (pokemonDetails: any[]) => {
-              this.allPokemons = [...this.allPokemons, ...pokemonDetails]; // Almacena todos los Pokémon
-              this.pokemons = [...this.allPokemons]; // Muestra los Pokémon en la lista filtrada
-              this.offset += this.limit; // Aumenta el offset para la siguiente carga
+              this.allPokemons = [...this.allPokemons, ...pokemonDetails]; 
+              this.pokemons = [...this.allPokemons]; 
+              this.offset += this.limit; 
 
-              if (event) event.target.complete(); // Finaliza el evento de scroll
+              if (event) event.target.complete(); 
             },
             error: (err) => console.error('Error al obtener detalles:', err)
           });
         } else if (event) {
-          event.target.disabled = true; // Deshabilita el infinite-scroll si no hay más datos
+          event.target.disabled = true; 
         }
       },
       error: (error: any) => {
         console.error('Error en la petición:', error);
-        if (event) event.target.complete(); // Finaliza el evento de scroll
+        if (event) event.target.complete(); 
       }
     });
   }
@@ -65,27 +64,27 @@ export class HomePage implements OnInit {
   const searchTerm = this.params.name?.trim().toLowerCase();
 
   if (!searchTerm) {
-    this.resetPokemonList(); // Restablece la lista completa
+    this.resetPokemonList(); 
     return;
   }
 
-  // Si el usuario busca un nombre exacto, consultamos la API directamente
+
   this.pokemonApiService.getPokemonDetails(`https://pokeapi.co/api/v2/pokemon/${searchTerm}`)
     .subscribe({
       next: (pokemonDetails: any) => {
-        this.pokemons = [pokemonDetails]; // Muestra solo el Pokémon encontrado
+        this.pokemons = [pokemonDetails]; 
         console.log('Pokémon encontrado:', this.pokemons);
       },
       error: (error: any) => {
         console.error('Error al buscar Pokémon:', error);
-        this.pokemons = []; // Si no se encuentra, limpiar la lista
+        this.pokemons = []; 
       }
     });
 }
 
 
   resetPokemonList() {
-    this.pokemons = [...this.allPokemons]; // Restaura la lista completa
+    this.pokemons = [...this.allPokemons]; 
   }
   
   

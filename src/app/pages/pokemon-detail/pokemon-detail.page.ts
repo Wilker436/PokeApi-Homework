@@ -38,14 +38,13 @@ export class PokemonDetailPage implements OnInit {
 
       const frontDefault = this.pokemon.sprites.front_default;
 
-        // Obtener todas las imágenes válidas sin incluir front_default duplicada
+
         const otherImages = Object.values(this.pokemon.sprites)
           .filter((sprite) => typeof sprite === 'string' && sprite !== null && sprite !== frontDefault);
 
-        // Combinar las imágenes, asegurando que front_default esté primero
+ 
         this.img = frontDefault ? [frontDefault, ...otherImages] : otherImages;
-  
-      // Obtener la descripción del Pokémon
+
       this.pokemonApiService.getPokemonSpecies(id).subscribe((species) => {
         const entry = species.flavor_text_entries.find(
           (entry: any) => entry.language.name === "es"
@@ -55,7 +54,6 @@ export class PokemonDetailPage implements OnInit {
     });
   }
 
-  // En tu archivo TypeScript (por ejemplo, card-pokemon.component.ts)
 
 
   

@@ -2,12 +2,16 @@
 
 ## 🚀 Pasos de Instalación
 
-1. **Clonar el repositorio** o descargar el archivo `.zip` del proyecto.  
-2. Desde una terminal en la carpeta del proyecto, ejecutar:  
+1. **Clonar el repositorio**
+   ```bash
+   git clone https://github.com/Wilker436/PokeApi-Homework.git
+   ```
+   o descargar el archivo `.zip` del proyecto.  
+3. Desde una terminal en la carpeta del proyecto, ejecutar:  
    ```bash
    npm install
    ```
-3. Ejecutar el proyecto con uno de los siguientes comandos:  
+4. Ejecutar el proyecto con uno de los siguientes comandos:  
    ```bash
    ionic serve
    # o
